@@ -1,19 +1,36 @@
 {
-  "name": "meteorite-app",
+  "name": "frontend",
   "version": "0.1.0",
-  "description": "",
-  "main": "server.js",
-  "scripts": {
-    "start" : "node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Nasser Abachi",
-  "license": "ISC",
+  "private": true,
   "dependencies": {
-    "express": "^4.17.0"
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-scripts": "3.0.1",
+    "soda-js": "^0.2.3",
+    "svg-loaders-react": "^0.4.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "devDependencies": {
-    "chai": "^4.2.0",
-    "mocha": "^6.1.4"
+    "tailwindcss": "^1.0.1"
   }
 }
