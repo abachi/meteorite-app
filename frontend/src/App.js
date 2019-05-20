@@ -10,13 +10,11 @@ const DATASET = 'gh4g-9sfh';
 
 const prepareApiQuery = (text) => {
   const fields = ['id', 'name', 'nametype', 'recclass', 'fall'];
-  const limit = 15;
   let params = '';
   fields.forEach((field) => {
-    params += field+" like '%"+text+"%' or ";
+    params += field +" like '%"+text+"%' or ";
   });
   params = params.substring(0, params.length - 4);
-  
   return params;
 }
 
@@ -39,8 +37,8 @@ class App extends React.Component {
 
     handleClick(){
       console.log('clicked');
-
     }
+
     handleSearch(e){
       this.setState({
         keywords: e.target.value,
@@ -71,7 +69,6 @@ class App extends React.Component {
             });
           })
           .on('error', (error) => {
-            console.error(error);
             this.setState({
               error: true,
               loading: false
@@ -81,6 +78,7 @@ class App extends React.Component {
 
   componentDidMount(){
   }
+
   render(){
       return (
 
