@@ -10,7 +10,7 @@ class SearchPanel extends React.Component {
           placeholder="keyword..."
           />
         <button className='bg-blue-500 text-white py-1 px-2 rounded'
-        onClick={this.props.handleClick} disabled={this.props.keywords.length === 0}>Search</button>
+        onClick={this.props.handleClick}>Search</button>
       </div>
     );
   }

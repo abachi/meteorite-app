@@ -9,7 +9,7 @@ import './App.css';
 const soda = require('soda-js');
 const consumer = new soda.Consumer('data.nasa.gov');
 const DATASET = 'gh4g-9sfh';
-const LIMIT = 15;
+const LIMIT = 1000;
 const ORDER_BY = 'name';
 
 class App extends React.Component {
@@ -24,17 +24,13 @@ class App extends React.Component {
       };
       this.handleClick = this.handleClick.bind(this);
       this.handleSearch = this.handleSearch.bind(this);
+      this.initLoad = this.initLoad.bind(this);
     }
 
     handleClick(){
       
       if(this.state.keywords.length == 0){
-        this.setState({
-          keywords: '',
-          loading: false,
-          error: false,
-          list: []
-        });
+        this.initLoad();
         return;
       }
 
@@ -70,7 +66,7 @@ class App extends React.Component {
         });
     }
 
-  componentDidMount(){
+  initLoad(){
     this.setState({
       loading: true
     });
@@ -92,6 +88,9 @@ class App extends React.Component {
               loading: false
             });
           });
+  }
+  componentDidMount(){
+    this.initLoad();
   }
 
   render(){
