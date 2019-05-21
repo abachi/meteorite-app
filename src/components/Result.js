@@ -23,7 +23,7 @@ class Result extends React.Component {
   render(){
     return(
       <div className='w-3/4 mx-auto mt-4 bg-white'>
-        <table>
+        <table className="w-full">
           <tbody>
           <tr className='bg-yellow-500 text-left'>
             <th className='p-3'>ID</th>
