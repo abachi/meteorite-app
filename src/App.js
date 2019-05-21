@@ -10,6 +10,7 @@ const soda = require('soda-js');
 const consumer = new soda.Consumer('data.nasa.gov');
 const DATASET = 'gh4g-9sfh';
 const LIMIT = 15;
+const ORDER_BY = 'name';
 
 class App extends React.Component {
   
@@ -46,7 +47,7 @@ class App extends React.Component {
         .withDataset(DATASET)
         .limit(LIMIT)
         .where(prepareApiQuery(this.state.keywords.trim()))
-        .order('id')
+        .order(ORDER_BY)
         .getRows()
           .on('success', (rows) => { 
             this.setState({
@@ -76,7 +77,7 @@ class App extends React.Component {
       consumer.query()
         .withDataset(DATASET)
         .limit(LIMIT)
-        .order('id')
+        .order(ORDER_BY)
         .getRows()
           .on('success', (rows) => { 
             this.setState({
