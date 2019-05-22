@@ -3,7 +3,7 @@ import React from 'react';
 class SearchPanel extends React.Component {
   render(){
     return(
-      <div className='w-1/3 text-center mx-auto pt-4'>
+      <div className='lg:w-1/3 text-center mx-auto pt-4'>
         <input value={this.props.keywords}
           onChange={this.props.handleSearch}
           className='border rounded mx-2 py-1 px-2' type='text'

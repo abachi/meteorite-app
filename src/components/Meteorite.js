@@ -4,7 +4,7 @@ class Meteorite extends React.Component {
 
   render(){
     return(
-      <tr className="m-2 border-b">
+      <tr className="m-2 border-b hover:bg-yellow-400">
         <td className='p-2'>{this.props.data.id}</td>  
         <td className='p-2'>{this.props.data.name}</td>  
         <td className='p-2'>{this.props.data.nametype}</td>  
