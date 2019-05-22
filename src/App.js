@@ -2,7 +2,6 @@ import React from 'react';
 import Result from './components/Result.js';
 import StaticAlert from './components/StaticAlert.js';
 import SearchPanel from './components/SearchPanel.js';
-import prepareApiQuery from './components/prepareApiQuery.js';
 import { Rings } from 'svg-loaders-react';
 import './App.css';
 
@@ -27,6 +26,9 @@ class App extends React.Component {
       this.initLoad = this.initLoad.bind(this);
     }
 
+    getQuery(){
+      return "lower(name) like '%"+this.state.keywords.trim().toLowerCase()+"%'";
+    }
     handleClick(){
       
       if(this.state.keywords.length == 0){
@@ -42,7 +44,7 @@ class App extends React.Component {
       consumer.query()
         .withDataset(DATASET)
         .limit(LIMIT)
-        .where(prepareApiQuery(this.state.keywords.trim()))
+        .where(this.getQuery())
         .order(ORDER_BY)
         .getRows()
           .on('success', (rows) => { 
