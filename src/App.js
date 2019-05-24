@@ -13,86 +13,65 @@ const ORDER_BY = 'name';
 
 class App extends React.Component {
   
-    constructor(props){
-      super(props);
-      this.state = {
-        keywords:'',
-        loading: false,
-        error: false,
-        list:[]
-      };
-      this.handleClick = this.handleClick.bind(this);
-      this.handleSearch = this.handleSearch.bind(this);
-      this.initLoad = this.initLoad.bind(this);
-    }
-
-    getQuery(){
-      return "lower(name) like '%"+this.state.keywords.trim().toLowerCase()+"%'";
-    }
-    handleClick(){
-      
-      if(this.state.keywords.length == 0){
-        this.initLoad();
-        return;
-      }
-
-      this.setState({
-        loading: true,
-        error: false
-      });
-
-      consumer.query()
-        .withDataset(DATASET)
-        .limit(LIMIT)
-        .where(this.getQuery())
-        .order(ORDER_BY)
-        .getRows()
-          .on('success', (rows) => { 
-            this.setState({
-              list: rows,
-              loading: false,
-              error: false,
-            });
-          })
-          .on('error', (error) => {
-            this.setState({
-              error: true,
-              loading: false
-            });
-          });
-    }
-
-    handleSearch(e){
-        this.setState({
-          keywords: e.target.value
-        });
-    }
-
-  initLoad(){
-    this.setState({
-      loading: true
-    });
-      consumer.query()
-        .withDataset(DATASET)
-        .limit(LIMIT)
-        .order(ORDER_BY)
-        .getRows()
-          .on('success', (rows) => { 
-            this.setState({
-              list: rows,
-              loading: false,
-              error: false,
-            });
-          })
-          .on('error', (error) => {
-            this.setState({
-              error: true,
-              loading: false
-            });
-          });
+  constructor(props){
+    super(props);
+    this.state = {
+      keywords:'',
+      loading: false,
+      error: false,
+      list:[]
+    };
+    this.handleClick = this.handleClick.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
   }
+
+  getQuery(){
+    return "lower(name) like '%"+this.state.keywords.trim().toLowerCase()+"%'";
+  }
+
+  loadData(){
+    let _query = null;
+    this.setState({
+      loading: true,
+      error: false
+    });
+    
+    if(this.state.keywords.length > 0){
+      _query = this.getQuery();
+    }
+    consumer.query()
+      .withDataset(DATASET)
+      .limit(LIMIT)
+      .where(_query)
+      .order(ORDER_BY)
+      .getRows()
+        .on('success', (rows) => { 
+          this.setState({
+            list: rows,
+            loading: false,
+            error: false,
+          });
+        })
+        .on('error', (error) => {
+          this.setState({
+            error: true,
+            loading: false
+          });
+        });
+  }
+
+  handleClick(){
+    this.loadData();
+  }
+
+  handleSearch(e){
+    this.setState({
+      keywords: e.target.value
+    });
+  }
+
   componentDidMount(){
-    this.initLoad();
+    this.loadData();
   }
 
   render(){
