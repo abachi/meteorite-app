@@ -11,9 +11,9 @@ class Meteorite extends React.Component {
         <td className='p-2'>{this.props.data.recclass}</td>  
         <td className='p-2'>{this.props.data.mass}</td>  
         <td className='p-2'>{this.props.data.fall}</td>  
+        <td className='p-2'>{this.props.data.year}</td>  
         <td className='p-2'>{this.props.data.reclat}</td>  
         <td className='p-2'>{this.props.data.reclong}</td>  
-        <td className='p-2'>{this.props.data.year}</td>  
       </tr>
     );
   }

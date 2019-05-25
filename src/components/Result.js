@@ -30,7 +30,7 @@ class Result extends React.Component {
             <th className='hidden lg:table-cell p-3'>Name</th>
             <th className='hidden lg:table-cell p-3'>Type</th>
             <th className='hidden lg:table-cell p-3'>Class</th>
-            <th className='hidden lg:table-cell p-3'>Mass</th>
+            <th className='hidden lg:table-cell p-3'>Mass(g)</th>
             <th className='hidden lg:table-cell p-3'>Fall</th>
             <th className='hidden lg:table-cell p-3'>Year</th>
             <th className='hidden lg:table-cell p-3'>Latitude</th>
