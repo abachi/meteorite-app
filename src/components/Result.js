@@ -26,15 +26,15 @@ class Result extends React.Component {
         <table className="w-full">
           <tbody>
           <tr className='bg-yellow-500 text-left'>
-            <th className='p-3'>ID</th>
-            <th className='p-3'>Name</th>
-            <th className='p-3'>Type</th>
-            <th className='p-3'>Class</th>
-            <th className='p-3'>Mass</th>
-            <th className='p-3'>Fall</th>
-            <th className='p-3'>Year</th>
-            <th className='p-3'>Latitude</th>
-            <th className='p-3'>Longitude</th>
+            <th className='hidden lg:table-cell p-3'>ID</th>
+            <th className='hidden lg:table-cell p-3'>Name</th>
+            <th className='hidden lg:table-cell p-3'>Type</th>
+            <th className='hidden lg:table-cell p-3'>Class</th>
+            <th className='hidden lg:table-cell p-3'>Mass</th>
+            <th className='hidden lg:table-cell p-3'>Fall</th>
+            <th className='hidden lg:table-cell p-3'>Year</th>
+            <th className='hidden lg:table-cell p-3'>Latitude</th>
+            <th className='hidden lg:table-cell p-3'>Longitude</th>
           </tr>
             {
               this.state.pageOfItems.map((e,i) => {
