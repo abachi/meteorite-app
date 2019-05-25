@@ -5,14 +5,15 @@
 .pagination li { 
 	display: inline-block;
 }
-.pagination li a {
+.pagination li button {
 	display: table-cell;
-	padding: 3px 5px;
+	padding: 3px 10px;
+	margin: 2px;
 	border: 1px solid gray;
 	border-radius: 2px;
 	cursor: pointer;
 }
-.pagination li a:hover {
+.pagination li button:hover {
 	background-color: #ecc94b;
 }
 .pagination .disabled{
